@@ -157,14 +157,14 @@ body {
   </header>
 
   <main class="px-3">
-    <h1>A rede social para todos</h1>
+    <h1>The social network for all</h1>
     <p class="lead text-page">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
     <p class="lead">
-      <a href="#" class="btn btn-lg btn-secondary fw-bold border-white bg-white bd-button-login">Faça seu login</a>
+      <a href="#" class="btn btn-lg btn-secondary fw-bold border-white bg-white bd-button-login">login</a>
     </p>
     <p>OU</p>
     <p>
-        <a href="#" class="btn btn-lg btn-secondary fw-bold bg-button-register">Registe-se</a>
+        <a href="#" class="btn btn-lg btn-secondary fw-bold bg-button-register">Register</a>
     </p>
   </main>
 
