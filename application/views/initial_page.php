@@ -13,138 +13,150 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 
     <style>
-.bd-placeholder-img {
-    font-size: 1.125rem;
-    text-anchor: middle;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    user-select: none;
-  }
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
 
-  @media (min-width: 768px) {
-    .bd-placeholder-img-lg {
-      font-size: 3.5rem;
-    }
-  }
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
 
-  .b-example-divider {
-    height: 3rem;
-    background-color: rgba(0, 0, 0, .1);
-    border: solid rgba(0, 0, 0, .15);
-    border-width: 1px 0;
-    box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
-  }
+      .b-example-divider {
+        height: 3rem;
+        background-color: rgba(0, 0, 0, .1);
+        border: solid rgba(0, 0, 0, .15);
+        border-width: 1px 0;
+        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+      }
 
-  .b-example-vr {
-    flex-shrink: 0;
-    width: 1.5rem;
-    height: 100vh;
-  }
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
 
-  .bi {
-    vertical-align: -.125em;
-    fill: currentColor;
-  }
+      .bi {
+        vertical-align: -.125em;
+        fill: currentColor;
+      }
 
-  .nav-scroller {
-    position: relative;
-    z-index: 2;
-    height: 2.75rem;
-    overflow-y: hidden;
-  }
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
 
-  .nav-scroller .nav {
-    display: flex;
-    flex-wrap: nowrap;
-    padding-bottom: 1rem;
-    margin-top: -1px;
-    overflow-x: auto;
-    text-align: center;
-    white-space: nowrap;
-    -webkit-overflow-scrolling: touch;
-  }
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
 
-  /*
- * Globals
- */
+      /*
+      * Globals
+      */
 
+      /* Custom default button */
+      .btn-secondary,
+      .btn-secondary:hover,
+      .btn-secondary:focus {
+        color: #333;
+        text-shadow: none; /* Prevent inheritance from `body` */
+      }
 
-/* Custom default button */
-.btn-secondary,
-.btn-secondary:hover,
-.btn-secondary:focus {
-  color: #333;
-  text-shadow: none; /* Prevent inheritance from `body` */
-}
+      /*
+      * Base structure
+      */
 
+      body {
+        text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
+        box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5);
+        background: url(https://th.bing.com/th/id/R.0690a896b0048e0417864dac2f4c6d89?rik=0bhnPmnoDpRQmg&pid=ImgRaw&r=0);
+        background-size: 100%;
+        background-repeat: no-repeat;
+        background-clip: content-box;
+      }
 
-/*
- * Base structure
- */
+      .cover-container {
+        max-width: 42em;
+      }
 
-body {
-  text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
-  box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5);
-  background: url(https://th.bing.com/th/id/R.0690a896b0048e0417864dac2f4c6d89?rik=0bhnPmnoDpRQmg&pid=ImgRaw&r=0);
-}
+      /*
+      * Header
+      */
 
-.cover-container {
-  max-width: 42em;
-}
+      .nav-masthead .nav-link {
+        color: rgba(255, 255, 255, .5);
+        border-bottom: .25rem solid transparent;
+      }
 
+      .nav-masthead .nav-link:hover,
+      .nav-masthead .nav-link:focus {
+        border-bottom-color: rgba(255, 255, 255, .25);
+      }
 
-/*
- * Header
- */
+      .nav-masthead .nav-link + .nav-link {
+        margin-left: 1rem;
+      }
 
-.nav-masthead .nav-link {
-  color: rgba(255, 255, 255, .5);
-  border-bottom: .25rem solid transparent;
-}
+      .nav-masthead .active {
+        color: #fff;
+        border-bottom-color: #fff;
+      }
+      .title {
+        margin-top: 5%;
+        font-size: 60px;
+        font-family: Dancing Script, sans-serif;
+        font-weight: 900;
+      }
 
-.nav-masthead .nav-link:hover,
-.nav-masthead .nav-link:focus {
-  border-bottom-color: rgba(255, 255, 255, .25);
-}
+      .text-page {
+          text-align: justify;
+      }
 
-.nav-masthead .nav-link + .nav-link {
-  margin-left: 1rem;
-}
+      .bd-button-login, .bd-button-register {
+        margin: 5%;
+      }
 
-.nav-masthead .active {
-  color: #fff;
-  border-bottom-color: #fff;
-}
-.title {
-    font-size: 50px;
-}
+      .bg-button-register {
+        background-color: transparent!important;
+        color: #fff;
+        font-size: 15px!important;
+        border-color: transparent;
+      }
 
-.text-page {
-    text-align: justify;
-}
+      .bd-button-login {
+        width: 50%;
+      }
 
-.bg-button-register {
-    background-color: transparent!important;
-    color: #fff;
-    font-size: 15px!important;
-    border-color: transparent;
-}
+      .bg-button-register:hover {
+          border-color: transparent;
+          color: aquamarine;
+          scale: 1.2;
+      }
 
-.bg-button-register:hover {
-    border-color: transparent;
-    color: aquamarine;
-    scale: 1.2;
-}
-
-.bd-button-login:hover {
-    scale: 1.2;
-}
-
-
+      .bd-button-login:hover {
+          scale: 1.2;
+      }
     </style>
     
     <!-- Custom styles for this template -->
-    <link href="styles/initinal_page.css" rel="stylesheet" type="text/css">
+    <link href="initial_page.css" rel="stylesheet" type="text/css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
 
   </head>
   <body class="d-flex h-100 text-center text-bg-dark">
@@ -158,9 +170,9 @@ body {
 
   <main class="px-3">
     <h1>The social network for all</h1>
-    <p class="lead text-page">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
+    <p class="lead text-page">Welcome to our social network that will provide you with a new experience, full of diversity, joy and enormous emotion, and even better, together with your friends.</p>
     <p class="lead">
-      <a href="#" class="btn btn-lg btn-secondary fw-bold border-white bg-white bd-button-login">login</a>
+      <a href="#" class="btn btn-lg btn-secondary fw-bold border-white bg-white bd-button-login">Login</a>
     </p>
     <p>OU</p>
     <p>
