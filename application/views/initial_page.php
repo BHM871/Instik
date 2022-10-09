@@ -4,10 +4,9 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.104.2">
-    <title>Cover Template · Bootstrap v5.2</title>
+    <title>Insta</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/cover/">
-
 
     <!-- Favicons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
@@ -64,57 +63,13 @@
         -webkit-overflow-scrolling: touch;
       }
 
-      /*
-      * Globals
-      */
-
-      /* Custom default button */
-      .btn-secondary,
-      .btn-secondary:hover,
-      .btn-secondary:focus {
-        color: #333;
-        text-shadow: none; /* Prevent inheritance from `body` */
-      }
-
-      /*
-      * Base structure
-      */
-
       body {
-        text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
-        box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5);
         background: url(https://th.bing.com/th/id/R.0690a896b0048e0417864dac2f4c6d89?rik=0bhnPmnoDpRQmg&pid=ImgRaw&r=0);
-        background-size: 100%;
+        background-size: 100% 100%;
         background-repeat: no-repeat;
-        background-clip: content-box;
+        background-clip: inherit;
       }
 
-      .cover-container {
-        max-width: 42em;
-      }
-
-      /*
-      * Header
-      */
-
-      .nav-masthead .nav-link {
-        color: rgba(255, 255, 255, .5);
-        border-bottom: .25rem solid transparent;
-      }
-
-      .nav-masthead .nav-link:hover,
-      .nav-masthead .nav-link:focus {
-        border-bottom-color: rgba(255, 255, 255, .25);
-      }
-
-      .nav-masthead .nav-link + .nav-link {
-        margin-left: 1rem;
-      }
-
-      .nav-masthead .active {
-        color: #fff;
-        border-bottom-color: #fff;
-      }
       .title {
         margin-top: 5%;
         font-size: 60px;
@@ -132,9 +87,9 @@
 
       .bg-button-register {
         background-color: transparent!important;
-        color: #fff;
+        color: #fff!important;
         font-size: 15px!important;
-        border-color: transparent;
+        border-color: transparent!important;
       }
 
       .bd-button-login {
@@ -142,18 +97,18 @@
       }
 
       .bg-button-register:hover {
-          border-color: transparent;
-          color: aquamarine;
-          scale: 1.2;
+          border-color: transparent!important;
+          color: aquamarine!important;
+          scale: 1.2!important;
       }
 
       .bd-button-login:hover {
-          scale: 1.2;
+          scale: 1.2!important;
       }
     </style>
     
     <!-- Custom styles for this template -->
-    <link href="initial_page.css" rel="stylesheet" type="text/css">
+    <link href="https://getbootstrap.com/docs/5.2/examples/cover/cover.css" rel="stylesheet" type="text/css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
@@ -172,16 +127,13 @@
     <h1>The social network for all</h1>
     <p class="lead text-page">Welcome to our social network that will provide you with a new experience, full of diversity, joy and enormous emotion, and even better, together with your friends.</p>
     <p class="lead">
-      <a href="#" class="btn btn-lg btn-secondary fw-bold border-white bg-white bd-button-login">Login</a>
+      <a href="index.php/welcome/login" class="btn btn-lg btn-secondary fw-bold border-white bg-white bd-button-login">Login</a>
     </p>
     <p>OU</p>
     <p>
-        <a href="#" class="btn btn-lg btn-secondary fw-bold bg-button-register">Register</a>
+        <a href="index.php/welcome/register" class="btn btn-lg btn-secondary fw-bold bg-button-register">Register</a>
     </p>
   </main>
-
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
 
   <footer class="mt-auto text-white-50">
     <p>Cover template for <a href="https://getbootstrap.com/" class="text-white">Bootstrap</a>, by <a href="https://twitter.com/mdo" class="text-white">@mdo</a>.</p>
