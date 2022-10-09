@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
@@ -15,7 +16,6 @@
             <!-- Favicons -->
         <link rel="manifest" href="https://getbootstrap.com/docs/5.2/assets/img/favicons/manifest.json">
 
-
         <style>
         .bd-placeholder-img {
             font-size: 1.125rem;
@@ -27,7 +27,7 @@
 
         @media (min-width: 768px) {
             .bd-placeholder-img-lg {
-            font-size: 3.5rem;
+                font-size: 3.5rem;
             }
         }
 
@@ -68,6 +68,22 @@
             -webkit-overflow-scrolling: touch;
         }
 
+        .information {
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            padding: 10px;
+            margin: auto;
+            width: fit-content;
+            height: fit-content;
+            background-color: #D2D2D2;
+            border-radius: 10px;
+            box-shadow: 3px 3px 5px #000;
+            visibility: hidden;
+        }
+
         </style>
 
         <!-- Custom styles for this template -->
@@ -94,10 +110,35 @@
                         <input type="checkbox" value="remember-me"> Remember me
                     </label>
                 </div>
-                <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+                <a class="w-100 btn btn-lg btn-primary" href="feed">Sign in</a>
                 <p class="mt-5 mb-3 text-muted">© 2017–2022</p>
             </form>
         </main>
+
+        <p id="information" class="information">Fill in the fields</p>
+
+        <script>
+            var inform = document.getElementById("information")
+            const inputs = document.querySelectorAll('.form-control')
+            const btn_login = document.querySelector('a')
+
+            login()
+
+            function login() {
+                btn_login.addEventListener('click', (e) => {
+
+                    inputs.forEach(element => {
+                        if (element.value === "" || element.value.length >= 8) {
+                            inform.style.visibility = "visible"
+                            setTimeout(function(){
+                                inform.style.visibility = "hidden"
+                            }, 1000)
+                            return
+                        }
+                    })
+                })
+            }
+        </script>
 
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>

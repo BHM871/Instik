@@ -1,10 +1,12 @@
-<html lang="en" class="h-100"><head>
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+  <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.104.2">
-    <title>Insta</title>
+    <title>Insta - Initial Page</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/cover/">
 
@@ -97,13 +99,13 @@
       }
 
       .bg-button-register:hover {
-          border-color: transparent!important;
-          color: aquamarine!important;
-          scale: 1.2!important;
+        border-color: transparent!important;
+        color: aquamarine!important;
+        scale: 1.2!important;
       }
 
       .bd-button-login:hover {
-          scale: 1.2!important;
+        scale: 1.2!important;
       }
     </style>
     
@@ -116,32 +118,28 @@
   </head>
   <body class="d-flex h-100 text-center text-bg-dark">
     
-<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-  <header class="mb-auto">
-    <div>
-      <h3 class="float-md-start mb-0 title">Insta</h3>
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+      <header class="mb-auto">
+        <div>
+          <h3 class="float-md-start mb-0 title">Insta</h3>
+        </div>
+      </header>
+
+      <main class="px-3">
+        <h1>The social network for all</h1>
+        <p class="lead text-page">Welcome to our social network that will provide you with a new experience, full of diversity, joy and enormous emotion, and even better, together with your friends.</p>
+        <p class="lead">
+          <a href="index.php/welcome/login" class="btn btn-lg btn-secondary fw-bold border-white bg-white bd-button-login">Login</a>
+        </p>
+        <p>OU</p>
+        <p>
+            <a href="index.php/welcome/register" class="btn btn-lg btn-secondary fw-bold bg-button-register">Register</a>
+        </p>
+      </main>
+
+      <footer class="mt-auto text-white-50">
+        <p>Cover template for <a href="https://getbootstrap.com/" class="text-white">Bootstrap</a>, by <a href="https://twitter.com/mdo" class="text-white">@mdo</a>.</p>
+      </footer>
     </div>
-  </header>
-
-  <main class="px-3">
-    <h1>The social network for all</h1>
-    <p class="lead text-page">Welcome to our social network that will provide you with a new experience, full of diversity, joy and enormous emotion, and even better, together with your friends.</p>
-    <p class="lead">
-      <a href="index.php/welcome/login" class="btn btn-lg btn-secondary fw-bold border-white bg-white bd-button-login">Login</a>
-    </p>
-    <p>OU</p>
-    <p>
-        <a href="index.php/welcome/register" class="btn btn-lg btn-secondary fw-bold bg-button-register">Register</a>
-    </p>
-  </main>
-
-  <footer class="mt-auto text-white-50">
-    <p>Cover template for <a href="https://getbootstrap.com/" class="text-white">Bootstrap</a>, by <a href="https://twitter.com/mdo" class="text-white">@mdo</a>.</p>
-  </footer>
-</div>
-
-
-    
-  
-
-</body></html>
+  </body>
+</html>

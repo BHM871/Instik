@@ -29,4 +29,8 @@ class Welcome extends CI_Controller {
 	public function register() {
 		$this->load->view('register');
 	}
+
+	public function feed() {
+		$this->load->view('feed');
+	}
 }
