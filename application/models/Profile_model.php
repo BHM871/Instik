@@ -1,30 +1,12 @@
 <?php
 
-class Porfile_model extends CI_Model {
+class Profile_model  extends CI_Model  {
 
-    public function login($data) {
-        $crud = new Grocery_crud_model();
+public function get_table(String $table_name) {
 
-        $crud->db_table_exists("usuarios");
-        $list = $crud->get_list();
+    $output = $this->db->get($table_name)->result_array();
 
-        $exist = false;
-
-        foreach ($list as $user) {
-            if ($user['email'] === $data['email']) {
-                $exist = true;
-            }
-        }
-
-        return $exist;
-    }
-
-    public function register($data) {
-
-        $crud = new Grocery_crud_model();
-        $crud->db_table_exists("usuarios");
-        $crud->db_insert($data);
-
-    }
+    return $output;
+}
 
 }

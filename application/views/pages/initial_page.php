@@ -13,6 +13,13 @@
     <!-- Favicons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 
+    <!-- Custom styles for this template -->
+    <link href="https://getbootstrap.com/docs/5.2/examples/cover/cover.css" rel="stylesheet" type="text/css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+
+    
     <style>
       .bd-placeholder-img {
         font-size: 1.125rem;
@@ -65,54 +72,8 @@
         -webkit-overflow-scrolling: touch;
       }
 
-      body {
-        background: url(https://th.bing.com/th/id/R.0690a896b0048e0417864dac2f4c6d89?rik=0bhnPmnoDpRQmg&pid=ImgRaw&r=0);
-        background-size: 100% 100%;
-        background-repeat: no-repeat;
-        background-clip: inherit;
-      }
-
-      .title {
-        margin-top: 5%;
-        font-size: 60px;
-        font-family: Dancing Script, sans-serif;
-        font-weight: 900;
-      }
-
-      .text-page {
-          text-align: justify;
-      }
-
-      .bd-button-login, .bd-button-register {
-        margin: 5%;
-      }
-
-      .bg-button-register {
-        background-color: transparent!important;
-        color: #fff!important;
-        font-size: 15px!important;
-        border-color: transparent!important;
-      }
-
-      .bd-button-login {
-        width: 50%;
-      }
-
-      .bg-button-register:hover {
-        border-color: transparent!important;
-        scale: 1.2!important;
-      }
-
-      .bd-button-login:hover {
-        scale: 1.2!important;
-      }
+      
     </style>
-    
-    <!-- Custom styles for this template -->
-    <link href="https://getbootstrap.com/docs/5.2/examples/cover/cover.css" rel="stylesheet" type="text/css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
 
   </head>
   <body class="d-flex h-100 text-center text-bg-dark">
@@ -136,9 +97,4 @@
         </p>
       </main>
 
-      <footer class="mt-auto text-white-50">
-        <p>Cover template for <a href="https://getbootstrap.com/" class="text-white">Bootstrap</a>, by <a href="https://twitter.com/mdo" class="text-white">@mdo</a>.</p>
-      </footer>
     </div>
-  </body>
-</html>

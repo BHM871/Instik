@@ -1,4 +1,4 @@
-    
+<body class="bg-light"> 
     <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark" aria-label="Main navigation">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Offcanvas navbar</a>
@@ -25,7 +25,7 @@
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="#">Action</a></li>
             <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="<?= base_url() ?>pages/about">About</a></li>
+            <li><a class="dropdown-item" href="<?= base_url() ?>main/about">About</a></li>
           </ul>
         </li>
       </ul>
