@@ -84,7 +84,7 @@ class Grocery_crud_model  extends CI_Model  {
 
     	$this->db->select($select, false);
 
-    	$results = $this->db->get($this->table_name)->result_array();
+    	$results = $this->db->get($this->table_name)->result();
 
     	return $results;
     }
