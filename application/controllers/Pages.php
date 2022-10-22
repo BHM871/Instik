@@ -62,7 +62,8 @@ class Pages extends CI_Controller {
     private function register($user) {
         $crud = new Grocery_crud_model();
         $crud->set_basic_table('usuario');
-        $users = $crud->get_list()->results_array();
+        $users = $crud->get_list();
+        $users = (array)$users;
 
         foreach ($users as $item) {
             if($item['email'] === $user['email'] &&

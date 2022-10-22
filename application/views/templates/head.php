@@ -121,7 +121,7 @@
             margin-top: 10vh !important;
         }
 
-        body {
+        .font {
             font-family: Arvo;
             color: #d3d3d3 !important;
         }
