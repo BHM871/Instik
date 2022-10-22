@@ -27,13 +27,13 @@ class Admin extends CI_Controller {
         $crud = $this->crud();
 
         $crud->set_table('usuario');
-        $crud->set_subject('Usuários');
+        $crud->set_subject('Usuário');
 
         $crud->set_relation('is_log', 'is_log', 'on_or_offline');
 
-        $crud->display_as('is_log', 'Logado');    
-        $crud->display_as('data_criacao', 'Data de criação');   
-        $crud->display_as('data_login', 'Data do último login'); 
+        $crud->display_as('is_log', 'Logado');
+        $crud->display_as('data_criacao', 'Data de criação');
+        $crud->display_as('data_login', 'Data do último login');
         $crud->columns([
             'id',
             'nome',
@@ -73,16 +73,16 @@ class Admin extends CI_Controller {
         $crud = $this->crud();
         
         $crud->set_table('perfil');
-        $crud->set_subject('Perfis');
+        $crud->set_subject('Perfil');
 
-        $crud->set_relation('id_user', 'usuario', 'nome');
+        $crud->set_relation('id_user', 'usuario', 'email');
 
-        $crud->display_as('foto', 'Imagem perfil'); 
-        $crud->display_as('data_nascimeto', 'Data de Nascimento');  
-        $crud->display_as('numero_seguidores', 'Seguidores');   
-        $crud->display_as('numer_publicacao', 'Posts');     
-        $crud->display_as('bio', 'Biografia');   
-        $crud->display_as('id_user', 'Usuário'); 
+        $crud->display_as('foto', 'Imagem perfil');
+        $crud->display_as('data_nascimeto', 'Data de Nascimento');
+        $crud->display_as('numero_seguidores', 'Seguidores');
+        $crud->display_as('numer_publicacao', 'Posts');
+        $crud->display_as('bio', 'Biografia');
+        $crud->display_as('id_user', 'Usuário');
         $crud->columns([
             'id',
             'nome',
@@ -112,7 +112,7 @@ class Admin extends CI_Controller {
             'numero_seguidores',
             'numer_publicacao',
             'id_user'
-        ]);  
+        ]);
 
         $crud->set_rules('nome', 'Nome', 'required');
         $crud->set_rules('foto', 'Imagem perfil', 'required');
@@ -125,47 +125,6 @@ class Admin extends CI_Controller {
         $this->output($crud);
     }
 
-    public function comentarios() {
-
-        $crud = $this->crud();
-        
-        $crud->set_table('comentario');
-        $crud->set_subject('Comentário');
-
-        $crud->set_relation('id_publi', 'pulblicacao', 'texto');
-        $crud->set_relation('id_perfil', 'perfil', 'nome');  
-
-        $crud->display_as('data_criacao', 'Data de criação');    
-        $crud->display_as('id_publi', 'Publicação');    
-        $crud->display_as('id_perfil', 'Meu perfil'); 
-        $crud->columns([
-            'id',
-            'texto',
-            'data_criacao',
-            'id_publi',
-            'id_perfil'
-        ]);
-
-        $crud->edit_fields([
-            'texto',
-            'id_publi',
-            'id_perfil'
-        ]);
-        $crud->add_fields([
-            'texto',
-            'data_criacao',
-            'id_publi',
-            'id_perfil'
-        ]);
-
-        $crud->set_rules('texto', 'Texto', 'required');
-        $crud->set_rules('data_criacao', 'Data de criação', 'required');
-        $crud->set_rules('id_publi', 'Publicação', 'required');
-        $crud->set_rules('id_perfil', 'Perfil', 'required');
-        
-        $this->output($crud);
-    }
-
     public function publicacoes() {
     
         $crud = $this->crud();
@@ -175,7 +134,7 @@ class Admin extends CI_Controller {
 
         $crud->set_relation('id_perfil', 'perfil', 'nome');
 
-        $crud->display_as('data_criacao', 'Data de criação'); 
+        $crud->display_as('data_criacao', 'Data de criação');
         $crud->display_as('id_perfil', 'Meu perfil');
         $crud->columns([
             'id',
@@ -204,18 +163,59 @@ class Admin extends CI_Controller {
         $this->output($crud);
     }
 
+    public function comentarios() {
+
+        $crud = $this->crud();
+        
+        $crud->set_table('comentario');
+        $crud->set_subject('Comentário');
+
+        $crud->set_relation('id_publi', 'pulblicacao', 'titulo');
+        $crud->set_relation('id_perfil', 'perfil', 'nome');
+
+        $crud->display_as('data_criacao', 'Data de criação');
+        $crud->display_as('id_publi', 'Publicação');
+        $crud->display_as('id_perfil', 'Meu perfil');
+        $crud->columns([
+            'id',
+            'texto',
+            'data_criacao',
+            'id_publi',
+            'id_perfil'
+        ]);
+
+        $crud->edit_fields([
+            'texto',
+            'id_publi',
+            'id_perfil'
+        ]);
+        $crud->add_fields([
+            'texto',
+            'data_criacao',
+            'id_publi',
+            'id_perfil'
+        ]);
+
+        $crud->set_rules('texto', 'Texto', 'required');
+        $crud->set_rules('data_criacao', 'Data de criação', 'required');
+        $crud->set_rules('id_publi', 'Publicação', 'required');
+        $crud->set_rules('id_perfil', 'Perfil', 'required');
+        
+        $this->output($crud);
+    }
+
     public function seguidores() {
         
         $crud = $this->crud();
 
         $crud->set_table('seguidores');
-        $crud->set_subject('Seguidores');
+        $crud->set_subject('Seguidor');
 
-        $crud->set_relation('id_user', 'usuario', 'nome');
+        $crud->set_relation('id_user', 'usuario', 'email');
         $crud->set_relation('id_perfil', 'perfil', 'nome');
 
         $crud->display_as('id_user', 'Seguindo');
-        $crud->display_as('data', 'desde');
+        $crud->display_as('data', 'Desde');
         $crud->display_as('id_perfil', 'Meu perfil');
         $crud->columns([
             'id',
