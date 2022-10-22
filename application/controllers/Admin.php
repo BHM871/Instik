@@ -34,6 +34,15 @@ class Admin extends CI_Controller {
         $crud->display_as('is_log', 'Logado');    
         $crud->display_as('data_criacao', 'Data de criação');   
         $crud->display_as('data_login', 'Data do último login'); 
+        $crud->columns([
+            'id',
+            'nome',
+            'email',
+            'senha',
+            'data_criacao',
+            'data_login',
+            'is_log'
+        ]);
 
         $crud->edit_fields([
             'nome',
@@ -68,13 +77,24 @@ class Admin extends CI_Controller {
 
         $crud->set_relation('id_user', 'usuario', 'nome');
 
+        $crud->display_as('foto', 'Imagem perfil'); 
         $crud->display_as('data_nascimeto', 'Data de Nascimento');  
         $crud->display_as('numero_seguidores', 'Seguidores');   
         $crud->display_as('numer_publicacao', 'Posts');     
         $crud->display_as('bio', 'Biografia');   
         $crud->display_as('id_user', 'Usuário'); 
+        $crud->columns([
+            'id',
+            'nome',
+            'foto',
+            'telefone',
+            'bio',
+            'numero_seguidores',
+            'numero_publicacao',
+            'id_user'
+        ]);
 
-        $crud->set_field_upload('foto', 'assets\uploads\files');   
+        $crud->set_field_upload('foto', 'assets/uploads/files/images');
         $crud->edit_fields([
             'nome',
             'foto',
@@ -118,6 +138,13 @@ class Admin extends CI_Controller {
         $crud->display_as('data_criacao', 'Data de criação');    
         $crud->display_as('id_publi', 'Publicação');    
         $crud->display_as('id_perfil', 'Meu perfil'); 
+        $crud->columns([
+            'id',
+            'texto',
+            'data_criacao',
+            'id_publi',
+            'id_perfil'
+        ]);
 
         $crud->edit_fields([
             'texto',
@@ -150,6 +177,13 @@ class Admin extends CI_Controller {
 
         $crud->display_as('data_criacao', 'Data de criação'); 
         $crud->display_as('id_perfil', 'Meu perfil');
+        $crud->columns([
+            'id',
+            'titulo',
+            'texto',
+            'data_criacao',
+            'id_perfil'
+        ]);
 
         $crud->edit_fields([
             'titulo',
@@ -183,6 +217,12 @@ class Admin extends CI_Controller {
         $crud->display_as('id_user', 'Seguindo');
         $crud->display_as('data', 'desde');
         $crud->display_as('id_perfil', 'Meu perfil');
+        $crud->columns([
+            'id',
+            'id_user',
+            'data',
+            'id_perfil'
+        ]);
         
         $crud->edit_fields([
             'data',
