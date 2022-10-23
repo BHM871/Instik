@@ -1,5 +1,5 @@
        <div>
-            <script src="/Insta/assets/bootstrap/assets/dist/js/bootstrap.bundle.min.js"></script>      
+            <script src="<?= base_url() ?>assets/bootstrap/assets/dist/js/bootstrap.bundle.min.js"></script>      
                
                 <!--Register-->
             <script src="<?= base_url() ?>assets/bootstrap/checkout/form-validation.js"></script>

@@ -16,10 +16,14 @@ class Admin extends CI_Controller {
         return $crud;
     }
 
-    private function output($crud) {
-        $output = $crud->render();
+    private function output($crud, $title) {
+        $render = $crud->render();
+        $render = (array)$render;
 
-        $this->load->view('example', (array) $output);
+        $output['data'] = $render;
+        $output['title'] = $title;
+
+        $this->load->view('example', $output);
     }
 
     public function usuarios() {
@@ -61,11 +65,11 @@ class Admin extends CI_Controller {
         ]);
 
         $crud->set_rules('nome', 'Nome', 'required', ['required' => 'Nome é obrigatório']);
-        $crud->set_rules('email', 'Email', 'required|valid_email', ['required' => 'Email é obrigatório', 'valid_email' => 'Preencha com um email válido']);
+        $crud->set_rules('email', 'email', 'required|valid_email', ['required' => 'email é obrigatório', 'valid_email' => 'Preencha com um email válido']);
         $crud->set_rules('senha', 'Senha', 'required', ['required' => 'Coloque uma senha']);
         $crud->set_rules('data_login', 'Data do último login', 'required');
         
-        $this->output($crud);
+        $this->output($crud, 'Admin - Usuários');
     }
 
     public function perfis() {
@@ -79,8 +83,8 @@ class Admin extends CI_Controller {
 
         $crud->display_as('foto', 'Imagem perfil');
         $crud->display_as('data_nascimeto', 'Data de Nascimento');
-        $crud->display_as('numero_seguidores', 'Seguidores');
-        $crud->display_as('numer_publicacao', 'Posts');
+        $crud->display_as('numero_segui', 'Seguidores');
+        $crud->display_as('numero_publi', 'Posts');
         $crud->display_as('bio', 'Biografia');
         $crud->display_as('id_user', 'Usuário');
         $crud->columns([
@@ -88,9 +92,10 @@ class Admin extends CI_Controller {
             'nome',
             'foto',
             'telefone',
+            'data_nascimento',
             'bio',
-            'numero_seguidores',
-            'numero_publicacao',
+            'numero_segui',
+            'numero_publi',
             'id_user'
         ]);
 
@@ -100,8 +105,8 @@ class Admin extends CI_Controller {
             'foto',
             'telefone',
             'bio',
-            'numero_seguidores',
-            'numer_publicacao'
+            'numero_segui',
+            'numer_publi'
         ]);
         $crud->add_fields([
             'nome',
@@ -109,27 +114,26 @@ class Admin extends CI_Controller {
             'telefone',
             'data_nascimento',
             'bio',
-            'numero_seguidores',
-            'numer_publicacao',
+            'numero_segui',
+            'numero_publi',
             'id_user'
         ]);
 
         $crud->set_rules('nome', 'Nome', 'required');
-        $crud->set_rules('foto', 'Imagem perfil', 'required');
         $crud->set_rules('data_nascimento', 'Data de nascimento', 'required');
         $crud->set_rules('bio', 'Bioagrafia', 'required');
         $crud->set_rules('numero_seguidores', 'Seguidores', 'required');
         $crud->set_rules('numer_publicacao', 'Posts', 'required');
         $crud->set_rules('id_user', 'Usuário', 'required');
 
-        $this->output($crud);
+        $this->output($crud, 'Admin - Perfis');
     }
 
     public function publicacoes() {
     
         $crud = $this->crud();
 
-        $crud->set_table('pulblicacao');
+        $crud->set_table('publicacao');
         $crud->set_subject('Publicação');
 
         $crud->set_relation('id_perfil', 'perfil', 'nome');
@@ -160,7 +164,7 @@ class Admin extends CI_Controller {
         $crud->set_rules('data_criacao', 'Data de criação', 'required');
         $crud->set_rules('id_perfil', 'Perfil', 'required');
 
-        $this->output($crud);
+        $this->output($crud, 'Admin - Publicações');
     }
 
     public function comentarios() {
@@ -170,7 +174,7 @@ class Admin extends CI_Controller {
         $crud->set_table('comentario');
         $crud->set_subject('Comentário');
 
-        $crud->set_relation('id_publi', 'pulblicacao', 'titulo');
+        $crud->set_relation('id_publi', 'publicacao', 'titulo');
         $crud->set_relation('id_perfil', 'perfil', 'nome');
 
         $crud->display_as('data_criacao', 'Data de criação');
@@ -201,7 +205,7 @@ class Admin extends CI_Controller {
         $crud->set_rules('id_publi', 'Publicação', 'required');
         $crud->set_rules('id_perfil', 'Perfil', 'required');
         
-        $this->output($crud);
+        $this->output($crud, 'Admin - Comentários');
     }
 
     public function seguidores() {
@@ -211,35 +215,35 @@ class Admin extends CI_Controller {
         $crud->set_table('seguidores');
         $crud->set_subject('Seguidor');
 
-        $crud->set_relation('id_user', 'usuario', 'email');
-        $crud->set_relation('id_perfil', 'perfil', 'nome');
+        $crud->set_relation('id_perfil_seguindo', 'usuario', 'nome');
+        $crud->set_relation('id_meu_perfil', 'perfil', 'nome');
 
-        $crud->display_as('id_user', 'Seguindo');
         $crud->display_as('data', 'Desde');
-        $crud->display_as('id_perfil', 'Meu perfil');
+        $crud->display_as('id_perfil_seguindo', 'Seguindo');
+        $crud->display_as('id_meu_perfil', 'Meu perfil');
         $crud->columns([
             'id',
-            'id_user',
+            'id_perfil_seguindo',
             'data',
-            'id_perfil'
+            'id_meu_perfil'
         ]);
         
         $crud->edit_fields([
             'data',
-            'id_user',
-            'id_perfil'
+            'id_perfil_seguindo',
+            'id_meu_perfil'
         ]);
         $crud->add_fields([
             'data',
-            'id_user',
-            'id_perfil'
+            'id_perfil_seguindo',
+            'id_meu_perfil'
         ]);
 
         $crud->set_rules('data', 'Seguindo desde', 'required');
-        $crud->set_rules('id_user', 'Usuário', 'required');
-        $crud->set_rules('id_perfil', 'Perfil', 'required');
+        $crud->set_rules('id_perfil_seguindo', 'Usuário', 'required');
+        $crud->set_rules('id_meu_perfil', 'Perfil', 'required');
 
-        $this->output($crud);
+        $this->output($crud, 'Admin - Seguidores');
     }
 
 }

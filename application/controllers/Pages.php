@@ -4,6 +4,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Pages extends CI_Controller {
 
+    private $userSession = [];
+
     public function __construct() {
         parent::__construct();
 
@@ -11,7 +13,7 @@ class Pages extends CI_Controller {
     }
 
     public function feed() {
-        $data['title'] = 'Initial - Feed Page'; 
+        $data['title'] = 'Instik - Feed Page'; 
 
         if(count($_POST) != 0){
             $data['user'] = $_POST;
@@ -38,7 +40,7 @@ class Pages extends CI_Controller {
     }
 
     public function about() {
-        $data['title'] = "Insta - About Page";
+        $data['title'] = "Instik - About Page";
 
         $this->load->view('pages/about', $data);
     }
@@ -46,17 +48,19 @@ class Pages extends CI_Controller {
     private function login($user) {
         $crud = new Grocery_crud_model();
         $crud->set_basic_table('usuario');
-        $users = $crud->get_list()->results_array();
+        $users = $crud->get_list();
+        $users = (array)$users;
 
-        foreach ($users as $item) {
+        $verific = $this->verific_email_senha($users, $user);
+        if($verific !== null){
+            $output = $user;
 
-            if($item['email'] === $user['email'] &&
-            $item['senha'] === $user['password']) {
-                return $user;
-            }
+            $user['is_log'] = 1;
+            
+            return $output;
         }
 
-        return 'Email ou se nha incorretos';
+        return 'Email ou senha incorretos';
     }
 
     private function register($user) {
@@ -65,11 +69,9 @@ class Pages extends CI_Controller {
         $users = $crud->get_list();
         $users = (array)$users;
 
-        foreach ($users as $item) {
-            if($item['email'] === $user['email'] &&
-            $item['senha'] === $user['senha']) {
-                return "User já existe";
-            }
+        $verific = $this->verific_email($users, $user);
+        if($verific !== null){
+            return 'Usuario já existe';
         }
 
         $output = $user;
@@ -81,10 +83,35 @@ class Pages extends CI_Controller {
         $userIsSuccess = $crud->db_insert($user);
 
         if(!$userIsSuccess){
-            return "Erro ao criar user";
+            return "Erro ao criar usuario";
         }
 
         return $output;
+    }
+
+    private function verific_email($users, $user) {
+        foreach ($users as $item) {
+
+            $item = (array)$item;
+
+            if($item['email'] === $user['email']) {
+                return $item;
+            }
+        }
+        return null;
+    }
+
+    private function verific_email_senha($users, $user) {
+        foreach ($users as $item) {
+
+            $item = (array)$item;
+
+            if($item['email'] === $user['email'] &&
+            $item['senha'] === $user['senha']) {
+                return $item;
+            }
+        }
+        return null;
     }
 
 }

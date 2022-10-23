@@ -1,37 +1,44 @@
     <?php $this->load->view('templates/head'); ?>
     <link href="<?= base_url() ?>assets/bootstrap/sign-in/signin.css" rel="stylesheet">
 
-    <body class="text-center">
-        <main class="form-signin w-100 m-auto">
-            <form method="POST" action="<?= base_url() ?>pages/feed">
+    <body class="login-background font">
+        <main class="form align-center">
+            <form method="POST" action="<?= base_url() ?>pages/feed" class="form">
 
-                <img class="mb-4" src="<?= base_url() ?>assets/bootstrap/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
-                <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+                <div class="text-center"><h1 class="h3 mb-3 fw-normal max-width">Please sign in</h1></div>
 
+                <label id="email">Email
                 <div class="form-floating">
-                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="email" required>
-                    <label for="floatingInput">Email address</label>
-                </div>
-                <div class="form-floating">
-                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password" required>
-                    <label for="floatingPassword">Password</label>
+                    <input type="email" class="form-control input" id="floatingInput" placeholder="name@example.com" name="email" required>
+                    <label for="floatingInput">Email</label>
                 </div>
 
-                <div class="checkbox mb-3">
-                    <label>
-                        <input type="checkbox" value="remember-me"> Remember me
-                    </label>
+                <label id="senha">Senha
+                <div class="form-floating">
+                    <input type="password" class="form-control input" id="floatingPassword" placeholder="Password" name="senha" required>
+                    <label for="floatingPassword">Senha</label>
                 </div>
-                
-                <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
-                <p class="mt-5 mb-3 text-muted">© 2017–2022</p>
+
+                <?php
+                    $error = $_GET;
+                    if($error != null) {
+                        echo '<div class="text-center information">';
+                        echo '   <span>';
+                        echo $error['error']; 
+                        echo '   <span>';
+                        echo '</div>';
+                    }
+                ?>
+
+                <button class="w-100 btn btn-lg btn-primary" type="submit">Registrar-se</button>
+                <div class="register-espace text-center">
+                    Não possui conta? <a href="<?= base_url() ?>initial/register">Registre-se</a>
+                </div>
+                <div class="register-espace text-center">
+                    <p class="mt-5 mb-3 text-muted">© 2017–2022</p>
+                </div>
             </form>
 
-            <?php
-                if($message !== null) {
-                echo '<p>'.$message.'</p>';
-                }
-            ?>
         </main>
 
         <?php $this->load->view('templates/scripts'); ?>

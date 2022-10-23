@@ -25,9 +25,9 @@
               <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Settings</a>
               <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Edit Profile</a></li>
                 <li><a class="dropdown-item" href="<?= base_url() ?>admin/usuarios">Administrator options</a></li>
                 <li><a class="dropdown-item" href="<?= base_url() ?>pages/about">About</a></li>
+                <li><a class="dropdown-item" href="<?= base_url() ?>initial">Logout</a></li>
               </ul>
             </li>
           </ul>
