@@ -1,8 +1,8 @@
 </head>
-<body class="bg-light"> 
+<body class="bg-light body-initial font"> 
     <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark" aria-label="Main navigation">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">Offcanvas navbar</a>
+        <a class="navbar-brand" href="#">Instik</a>
         <button class="navbar-toggler p-0 border-0" type="button" id="navbarSideCollapse" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -13,45 +13,28 @@
               <a class="nav-link active" aria-current="page" href="<?= base_url() ?>pages/feed">Feed</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Notifications</a>
+              <a class="nav-link" href="#">Notificações</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Profile</a>
+              <a class="nav-link" href="#">Perfil</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Switch account</a>
+              <a class="nav-link" href="#">Escolha a Conta</a>
             </li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Settings</a>
+              <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Opções</a>
               <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="<?= base_url() ?>admin/usuarios">Administrator options</a></li>
-                <li><a class="dropdown-item" href="<?= base_url() ?>pages/about">About</a></li>
-                <li><a class="dropdown-item" href="<?= base_url() ?>initial">Logout</a></li>
+                <li><a class="dropdown-item" href="#">Edit Profile</a></li>
+                <li><a class="dropdown-item" href="<?= base_url() ?>admin/usuarios">Opções de Administrador</a></li>
+                <li><a class="dropdown-item" href="<?= base_url() ?>pages/about">Sobre</a></li>
               </ul>
             </li>
           </ul>
           <form class="d-flex" role="search">
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
+            <button class="btn btn-outline-success" type="submit">Pesquisar</button>
           </form>
         </div>
       </div>
     </nav>
-
-    <div class="nav-scroller bg-body shadow-sm">
-      <nav class="nav" aria-label="Secondary navigation">
-        <a class="nav-link active" aria-current="page" href="#">Dashboard</a>
-        <a class="nav-link" href="#">
-          Friends
-          <span class="badge text-bg-light rounded-pill align-text-bottom">27</span>
-        </a>
-        <a class="nav-link" href="#">Explore</a>
-        <a class="nav-link" href="#">Suggestions</a>
-        <a class="nav-link" href="#">Link</a>
-        <a class="nav-link" href="#">Link</a>
-        <a class="nav-link" href="#">Link</a>
-        <a class="nav-link" href="#">Link</a>
-        <a class="nav-link" href="#">Link</a>
-      </nav>
-    </div>

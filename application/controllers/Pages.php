@@ -76,11 +76,15 @@ class Pages extends CI_Controller {
 
         $output = $user;
 
-        $user['data_criacao'] = date_format(date_create(), 'dd-MM-yyyy');
-        $user['data_login'] = date_format(date_create(), 'dd-MM-yyyy');
-        $user['is_log'] = 1;
+        $insert['nome'] = $user['nome'];
+        $insert['email'] = $user['email'];
+        $insert['senha'] = $user['senha'];
+        
+        $insert['data_criacao'] = date_create()->format('D, d M Y H:i:s');
+        $insert['data_login'] = date_create()->format('D, d M Y H:i:s');
+        $insert['is_log'] = 1;
 
-        $userIsSuccess = $crud->db_insert($user);
+        $userIsSuccess = $crud->db_insert($insert);
 
         if(!$userIsSuccess){
             return "Erro ao criar usuario";

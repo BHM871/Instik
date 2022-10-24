@@ -9,14 +9,8 @@
                 
                 <label id="name">Nome 
                 <div class="form-floating">
-                    <input type="text" class="form-control input" id="floatingName" placeholder="insert name" name="name" required>
+                    <input type="text" class="form-control input" id="floatingName" placeholder="insert name" name="nome" required>
                     <label for="floatingPassword">Nome</label>
-                </div>
-
-                <label id="date">Data de Nascimento
-                <div class="form-floating">
-                    <input type="date" class="form-control input" id="floatingDate" placeholder="#" name="data_nascimento" required>
-                    <label for="floatingPassword">Data de Nascimento</label>
                 </div>
 
                 <label id="email">Email
@@ -33,7 +27,7 @@
 
                 <label id="phone">Telefone
                 <div class="form-floating">
-                    <input type="text" class="form-control input" id="floatingNumber" placeholder="Telefone" name="telefone" required>
+                    <input type="tel" maxlength="16" class="form-control input" id="floatingNumber" placeholder="Telefone" name="telefone" required>
                     <label for="floatingPassword">Telefone</label>
                 </div>
                 </div> 
