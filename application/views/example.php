@@ -4,6 +4,7 @@
 	<meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title><?= $title ?></title>
+    <link rel="shortcut icon" type="image/x-icon" href="<?= base_url() ?>assets/images/icon.ico">
 <?php 
 foreach($data['css_files'] as $file): ?>
 	<link type="text/css" rel="stylesheet" href="<?php echo $file; ?>" />

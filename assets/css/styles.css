@@ -166,16 +166,13 @@ button[type="submit"]{
 
 .back{
     width: fit-content;
-    height: auto;
-    background: transparent;
-    border-color: transparent;
+    height: fit-content;
     color: #d3d3d3 !important;
     text-decoration-color: transparent !important;
     margin-top: 50px;
 }
 
 .back:hover{
-    scale: 1.2;
     animation-name: hover;
     animation-duration: 2s;
     animation-fill-mode: forwards;
@@ -188,7 +185,7 @@ button[type="submit"]{
         scale: 1.0;
     }
     50% {
-        scale: 1.1;
+        scale: 1.2;
     }
     100% {
         scale: 1.0;

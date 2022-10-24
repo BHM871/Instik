@@ -28,7 +28,9 @@
     <!-- Font-->    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Arvo&display=swap" rel="stylesheet">    
+    <link href="https://fonts.googleapis.com/css2?family=Arvo&display=swap" rel="stylesheet">  
+    
+    <link rel="shortcut icon" type="image/x-icon" href="<?= base_url() ?>assets/images/icon.ico">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="<?= base_url() ?>assets/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/css/styles.css">
