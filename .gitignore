@@ -1,11 +1,9 @@
-.htaccess
 .buildpath
 .settings/
 .project
 .idea/
 system/
 assets/grocery_crud/themes/bootstrap
-application/.htaccess
 application/cache/
 application/config/migration.php
 application/config/autoload.php
@@ -40,7 +38,6 @@ assets/uploads/images/
 application/models/index.html
 application/third_party/
 application/views/index.html
-application/views/welcome_message.php
 application/views/errors/*
 index.php
 license.txt
