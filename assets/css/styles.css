@@ -142,10 +142,6 @@ body {
     }
 }
 
-.instikcolor{
-    color:#e36414;
-}
-
 .input{
     width: 30vw;
 }
@@ -190,4 +186,37 @@ button[type="submit"]{
     100% {
         scale: 1.0;
     }
+}
+
+.centa-li{
+    display: flex;
+    justify-content: center;
+}
+
+.about-div{
+    width:40%;
+    margin-left:10%;
+}
+
+.about-div-left{
+    width:40%;
+    margin-left:58%;
+}
+
+.opacidade{
+    opacity : 0.5;
+}
+
+.instik-color{
+    color:#e36414;
+}
+
+.link-about{
+    color:#e36414;
+    text-decoration: none;
+}
+
+.link-about:hover{
+    font-size: 20px;
+    color: #e3FF14;
 }

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 22-Out-2022 às 20:04
+-- Tempo de geração: 30-Out-2022 às 17:22
 -- Versão do servidor: 10.4.25-MariaDB
 -- versão do PHP: 8.1.10
 
@@ -67,18 +67,18 @@ CREATE TABLE `perfil` (
   `telefone` varchar(32) NOT NULL,
   `data_nascimento` date NOT NULL,
   `bio` text NOT NULL,
-  `numero_seguidores` int(32) NOT NULL,
-  `numero_publicacao` int(32) NOT NULL,
+  `numero_segui` int(11) NOT NULL,
+  `numero_publi` int(11) NOT NULL,
   `id_user` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `pulblicacao`
+-- Estrutura da tabela `publicacao`
 --
 
-CREATE TABLE `pulblicacao` (
+CREATE TABLE `publicacao` (
   `id` int(11) NOT NULL,
   `titulo` varchar(64) NOT NULL,
   `texto` text NOT NULL,
@@ -94,9 +94,10 @@ CREATE TABLE `pulblicacao` (
 
 CREATE TABLE `seguidores` (
   `id` int(11) NOT NULL,
+  `nome` varchar(32) NOT NULL,
   `data` date NOT NULL,
-  `id_user` int(11) NOT NULL,
-  `id_perfil` int(11) NOT NULL
+  `id_perfil_seguindo` int(11) NOT NULL,
+  `id_meu_perfil` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -141,9 +142,9 @@ ALTER TABLE `perfil`
   ADD KEY `codigo_user` (`id_user`);
 
 --
--- Índices para tabela `pulblicacao`
+-- Índices para tabela `publicacao`
 --
-ALTER TABLE `pulblicacao`
+ALTER TABLE `publicacao`
   ADD PRIMARY KEY (`id`),
   ADD KEY `codigo_perfil` (`id_perfil`);
 
@@ -152,8 +153,8 @@ ALTER TABLE `pulblicacao`
 --
 ALTER TABLE `seguidores`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `codigo_user` (`id_user`),
-  ADD KEY `codigo_perfil` (`id_perfil`);
+  ADD KEY `codigo_perfil` (`id_perfil_seguindo`),
+  ADD KEY `id_meu_perfil` (`id_meu_perfil`);
 
 --
 -- Índices para tabela `usuario`
@@ -170,7 +171,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de tabela `comentario`
 --
 ALTER TABLE `comentario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de tabela `is_log`
@@ -182,25 +183,25 @@ ALTER TABLE `is_log`
 -- AUTO_INCREMENT de tabela `perfil`
 --
 ALTER TABLE `perfil`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- AUTO_INCREMENT de tabela `pulblicacao`
+-- AUTO_INCREMENT de tabela `publicacao`
 --
-ALTER TABLE `pulblicacao`
+ALTER TABLE `publicacao`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de tabela `seguidores`
 --
 ALTER TABLE `seguidores`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de tabela `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(64) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(64) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- Restrições para despejos de tabelas
@@ -211,7 +212,7 @@ ALTER TABLE `usuario`
 --
 ALTER TABLE `comentario`
   ADD CONSTRAINT `comentario_ibfk_1` FOREIGN KEY (`id_perfil`) REFERENCES `perfil` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `comentario_ibfk_2` FOREIGN KEY (`id_publi`) REFERENCES `pulblicacao` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `comentario_ibfk_2` FOREIGN KEY (`id_publi`) REFERENCES `publicacao` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Limitadores para a tabela `perfil`
@@ -220,17 +221,17 @@ ALTER TABLE `perfil`
   ADD CONSTRAINT `perfil_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `usuario` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Limitadores para a tabela `pulblicacao`
+-- Limitadores para a tabela `publicacao`
 --
-ALTER TABLE `pulblicacao`
-  ADD CONSTRAINT `pulblicacao_ibfk_2` FOREIGN KEY (`id_perfil`) REFERENCES `perfil` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `publicacao`
+  ADD CONSTRAINT `publicacao_ibfk_2` FOREIGN KEY (`id_perfil`) REFERENCES `perfil` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Limitadores para a tabela `seguidores`
 --
 ALTER TABLE `seguidores`
-  ADD CONSTRAINT `seguidores_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `usuario` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `seguidores_ibfk_2` FOREIGN KEY (`id_perfil`) REFERENCES `perfil` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `seguidores_ibfk_2` FOREIGN KEY (`id_perfil_seguindo`) REFERENCES `perfil` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `seguidores_ibfk_3` FOREIGN KEY (`id_meu_perfil`) REFERENCES `perfil` (`id`);
 
 --
 -- Limitadores para a tabela `usuario`
